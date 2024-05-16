@@ -1,0 +1,80 @@
+version: '3.8'
+services:
+  mysql:
+    container_name: tinyurl_mysql
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.docker/mysql/data/:/var/lib/mysql:rw
+      - ./.docker/mysql/log/:/var/log/mysql:rw
+      - ./.docker/mysql/config/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: tinyurl
+  apache:
+    container_name: tinyurl_apache
+    build: ./.docker/apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/html/public:rw
+      - ./.docker/apache/config/vhosts.conf:/etc/apache2/sites-enabled/vhosts.conf:ro
+    depends_on:
+      - php
+  php:
+    container_name: tinyurl_php
+    build:
+      context: .
+      dockerfile: ./.docker/php/Dockerfile
+    environment:
+      APP_ENV: ${APP_ENV}
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      REDIS_HOST: tinyurl_redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - .:/var/www/html:rw
+      - ./.docker/php/logs:/app/var/logs:rw
+    depends_on:
+      - mysql
+      - redis
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: tinyurl_phpmyadmin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - "8082:80"
+  redis:
+    image: redis:6.2-alpine
+    container_name: tinyurl_redis
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - ./.docker/redis/cache:/data
+  rabbitmq:
+    container_name: tinyurl_rabbitmq
+    build:
+      context: .
+      dockerfile: ./.docker/rabbitmq/Dockerfile
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:15672" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - ./.docker/rabbitmq/data:/var/lib/rabbitmq
