@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6d9b973cde453c8a0ba26676acf8c33",
+    "content-hash": "971c8e5bf381e30dd1dc8d83e46c0c78",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1478,97 +1478,6 @@
                 "source": "https://github.com/php-fig/log/tree/3.0.0"
             },
             "time": "2021-07-14T16:46:02+00:00"
-        },
-        {
-            "name": "snc/redis-bundle",
-            "version": "4.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/snc/SncRedisBundle.git",
-                "reference": "4c212a0ee7bac0af82817d9d71c9c8e290e2ca7e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/snc/SncRedisBundle/zipball/4c212a0ee7bac0af82817d9d71c9c8e290e2ca7e",
-                "reference": "4c212a0ee7bac0af82817d9d71c9c8e290e2ca7e",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.4 || ^8.0",
-                "symfony/deprecation-contracts": "^2 || ^3",
-                "symfony/framework-bundle": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/http-foundation": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/service-contracts": ">=1.0",
-                "symfony/var-dumper": "^5.4.20 ||^6.0 || ^7.0"
-            },
-            "conflict": {
-                "ext-redis": "<5.3",
-                "predis/predis": "<2.0"
-            },
-            "require-dev": {
-                "doctrine/annotations": "^2.0",
-                "doctrine/coding-standard": "^12.0",
-                "ext-pdo_sqlite": "*",
-                "ext-redis": "*",
-                "friendsofphp/proxy-manager-lts": "^1.0.6",
-                "monolog/monolog": "*",
-                "phpunit/phpunit": "^9.5.28 || ^10",
-                "predis/predis": "^2.0",
-                "seec/phpunit-consecutive-params": "dev-master",
-                "symfony/browser-kit": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/cache": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/config": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/console": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/dom-crawler": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/filesystem": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/stopwatch": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/twig-bundle": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/web-profiler-bundle": "^5.4.20 ||^6.0 || ^7.0",
-                "symfony/yaml": "^5.4.20 ||^6.0 || ^7.0",
-                "vimeo/psalm": "^5.2"
-            },
-            "suggest": {
-                "monolog/monolog": "If you want to use the monolog redis handler.",
-                "predis/predis": "If you want to use predis.",
-                "symfony/console": "If you want to use commands to interact with the redis database"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Snc\\RedisBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Henrik Westphal",
-                    "email": "henrik.westphal@gmail.com"
-                },
-                {
-                    "name": "Community contributors",
-                    "homepage": "https://github.com/snc/SncRedisBundle/contributors"
-                }
-            ],
-            "description": "A Redis bundle for Symfony",
-            "homepage": "https://github.com/snc/SncRedisBundle",
-            "keywords": [
-                "nosql",
-                "redis",
-                "symfony"
-            ],
-            "support": {
-                "issues": "https://github.com/snc/SncRedisBundle/issues",
-                "source": "https://github.com/snc/SncRedisBundle/tree/4.7.1"
-            },
-            "time": "2024-02-20T23:10:36+00:00"
         },
         {
             "name": "symfony/cache",
@@ -4171,6 +4080,156 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "nikic/php-parser",
+            "version": "v5.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "139676794dc1e9231bf7bcd123cfc0c99182cb13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/139676794dc1e9231bf7bcd123cfc0c99182cb13",
+                "reference": "139676794dc1e9231bf7bcd123cfc0c99182cb13",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "ext-tokenizer": "*",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "ircmaxell/php-yacc": "^0.0.7",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
+            },
+            "bin": [
+                "bin/php-parse"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpParser\\": "lib/PhpParser"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/nikic/PHP-Parser/issues",
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.2"
+            },
+            "time": "2024-03-05T20:51:40+00:00"
+        },
+        {
+            "name": "symfony/maker-bundle",
+            "version": "v1.59.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/maker-bundle.git",
+                "reference": "b87b1b25c607a8a50832395bc751c784946a0350"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/b87b1b25c607a8a50832395bc751c784946a0350",
+                "reference": "b87b1b25c607a8a50832395bc751c784946a0350",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "^2.0",
+                "nikic/php-parser": "^4.18|^5.0",
+                "php": ">=8.1",
+                "symfony/config": "^6.4|^7.0",
+                "symfony/console": "^6.4|^7.0",
+                "symfony/dependency-injection": "^6.4|^7.0",
+                "symfony/deprecation-contracts": "^2.2|^3",
+                "symfony/filesystem": "^6.4|^7.0",
+                "symfony/finder": "^6.4|^7.0",
+                "symfony/framework-bundle": "^6.4|^7.0",
+                "symfony/http-kernel": "^6.4|^7.0",
+                "symfony/process": "^6.4|^7.0"
+            },
+            "conflict": {
+                "doctrine/doctrine-bundle": "<2.10",
+                "doctrine/orm": "<2.15"
+            },
+            "require-dev": {
+                "composer/semver": "^3.0",
+                "doctrine/doctrine-bundle": "^2.5.0",
+                "doctrine/orm": "^2.15|^3",
+                "symfony/http-client": "^6.4|^7.0",
+                "symfony/phpunit-bridge": "^6.4.1|^7.0",
+                "symfony/security-core": "^6.4|^7.0",
+                "symfony/yaml": "^6.4|^7.0",
+                "twig/twig": "^3.0|^4.x-dev"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bundle\\MakerBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Maker helps you create empty commands, controllers, form classes, tests and more so you can forget about writing boilerplate code.",
+            "homepage": "https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html",
+            "keywords": [
+                "code generator",
+                "dev",
+                "generator",
+                "scaffold",
+                "scaffolding"
+            ],
+            "support": {
+                "issues": "https://github.com/symfony/maker-bundle/issues",
+                "source": "https://github.com/symfony/maker-bundle/tree/v1.59.1"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-05-06T03:59:59+00:00"
+        },
         {
             "name": "symfony/translation-contracts",
             "version": "v3.5.0",

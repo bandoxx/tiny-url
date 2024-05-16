@@ -2,16 +2,6 @@ ARG PHP_VERSION=8.3
 
 FROM php:${PHP_VERSION}-fpm
 
-#
-#--------------------------------------------------------------------------
-# Software's Installation
-#--------------------------------------------------------------------------
-#
-# Installing tools and PHP extentions using "apt", "docker-php", "pecl",
-#
-
-# Install "curl", "libmemcached-dev", "libpq-dev", "libjpeg-dev",
-#         "libpng-dev", "libfreetype6-dev", "libssl-dev", "libmcrypt-dev",
 RUN set -eux; \
     apt-get update; \
     apt-get upgrade -y; \
@@ -38,15 +28,7 @@ RUN set -eux; \
     # Install the PHP pdo_mysql extention
     docker-php-ext-install pdo_mysql; \
     # Install the PHP pdo_pgsql extention
-    docker-php-ext-install pdo_pgsql; \
-    # Install the PHP gd library
-    docker-php-ext-configure gd \
-            --prefix=/usr \
-            --with-jpeg \
-            --with-webp \
-            --with-xpm \
-            --with-freetype; \
-    docker-php-ext-install gd;
+    docker-php-ext-install pdo_pgsql;
 
 COPY .docker/php/config/php.ini /usr/local/etc/php/php.ini
 

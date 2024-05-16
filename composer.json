@@ -11,7 +11,6 @@
         "doctrine/doctrine-bundle": "^2.12",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.1",
-        "snc/redis-bundle": "^4.7",
         "symfony/console": "6.4.*",
         "symfony/dotenv": "6.4.*",
         "symfony/flex": "^2",
@@ -69,6 +68,7 @@
         }
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.59",
         "symfony/stopwatch": "6.4.*",
         "symfony/web-profiler-bundle": "6.4.*"
     }
