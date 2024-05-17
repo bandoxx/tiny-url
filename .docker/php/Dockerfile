@@ -7,7 +7,6 @@ RUN set -eux; \
             curl \
             libmemcached-dev \
             libz-dev \
-            libgmp-dev \
             libssl-dev \
             libmcrypt-dev \
             libicu-dev \
@@ -15,7 +14,7 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
-    docker-php-ext-install pdo_mysql gmp intl
+    docker-php-ext-install pdo_mysql intl
 
 COPY .docker/php/config/php.ini /usr/local/etc/php/php.ini
 

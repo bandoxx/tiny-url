@@ -20,5 +20,9 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    cache.adapter.null:
+        class: Symfony\Component\Cache\Adapter\NullAdapter
+        arguments: [~]
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

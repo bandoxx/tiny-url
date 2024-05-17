@@ -15,4 +15,7 @@ This is portfolio project, that has the idea to be usable in real-world too.
 ```bash
 docker-compose build
 docker-compose up -d
+
+
+php bin/console doctrine:migrations:migrate
 ```
