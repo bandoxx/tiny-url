@@ -13,6 +13,6 @@ This is portfolio project, that has the idea to be usable in real-world too.
 ## Setup for local environment
 
 ```bash
+docker-compose build
 docker-compose up -d
-
 ```
